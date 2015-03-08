@@ -1,5 +1,5 @@
 {
-  "name": "Example",
+  "name": "E-voting Backend",
   "version": "0.0.1",
   "dependencies": {
     "express": "3.2.6",

@@ -21,7 +21,8 @@ module.exports = function(app) {
 
         var user = new User({
             name:    req.body.name,
-            age: 	 req.body.age
+            age: 	 req.body.age,
+            surname: req.body.surname
         });
 
         user.save(function(err) {
@@ -56,6 +57,7 @@ module.exports = function(app) {
         User.findById(req.params.id, function(err, user) {
             user.name   = req.body.name;
             user.age    = req.body.age;
+            user.surname= req.body.surname;
 
             user.save(function(err) {
                 if(!err) {
