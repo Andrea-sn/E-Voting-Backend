@@ -7,8 +7,8 @@ var mongoose = require('mongoose')
 
 
 var Userschema = new Schema({
-    name: {type:String},
-    surname:{type:String},
+    username: {type:String},
+    sign:{type:String},
     age: {type:Number}
 });
 

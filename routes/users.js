@@ -20,9 +20,9 @@ module.exports = function(app) {
         console.log(req.body);
 
         var user = new User({
-            name:    req.body.name,
+            username:    req.body.username,
             age: 	 req.body.age,
-            surname: req.body.surname
+            sign:req.body.sign
         });
 
         user.save(function(err) {
@@ -55,9 +55,9 @@ module.exports = function(app) {
     //PUT - Update a register already exists
     updateUser = function(req, res) {
         User.findById(req.params.id, function(err, user) {
-            user.name   = req.body.name;
+            user.username   = req.body.username;
             user.age    = req.body.age;
-            user.surname= req.body.surname;
+            user.sign= req.body.sign;
 
             user.save(function(err) {
                 if(!err) {
