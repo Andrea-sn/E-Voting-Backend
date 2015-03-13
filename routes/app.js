@@ -6,7 +6,7 @@ module.exports = function(app) {
     getPublicKey = function (req, res) {
         App.find(function (err, apps) {
             if (!err) {
-                console.log('GET /app/publicKey')
+                console.log('GET /apps')
                 res.send(apps);
             } else {
                 console.log('ERROR: ' + err);
@@ -14,7 +14,7 @@ module.exports = function(app) {
         });
     };
 
-    app.get('/users', getPublicKey);
+    app.get('/apps', getPublicKey);
 }
 
 

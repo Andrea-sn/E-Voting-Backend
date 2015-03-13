@@ -1,6 +1,8 @@
 module.exports = function(app) {
 
     var User = require('../models/user/schema.js');
+    var Crypto = require ('crypto');
+    var signer = Crypto.createSign('RSA-SHA256');
 
     //GET - Return all users in the DB
     findAllUsers = function (req, res) {
@@ -18,11 +20,11 @@ module.exports = function(app) {
     addUser = function(req, res) {
         console.log('POST');
         console.log(req.body);
-
+        signer.update(req.body.username);
         var user = new User({
             username:    req.body.username,
             age: 	 req.body.age,
-            sign:req.body.sign
+            sign: signer.sign(app.privateKey,"hex")
         });
 
         user.save(function(err) {
